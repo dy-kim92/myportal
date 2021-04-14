@@ -12,7 +12,7 @@ import com.bitacademy.myportal.vo.GuestbookVo;
 public class GuestbookServiceImpl implements GuestbookService {
 
 	//	DAO 연결
-	//	Autowired : bean 이름으로 객체를 검색하여 주입 (DI)
+	//	Autowired : bean id로 객체를 검색하여 주입 (DI)
 	@Autowired
 	GuestbookDao guestbookDaoImpl;
 	
