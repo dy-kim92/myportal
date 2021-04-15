@@ -8,7 +8,7 @@
 	<!-- 전체 방명록 내용 불러오기 쿼리 -->
 	<!-- guestbook.selectAll 로 호출
 		결과 데이터는 GuestbookVo로 반환 -->
-	<select id="selectAll" resultType="com.bitacademy.myportal.vo.GuestbookVo">
+	<select id="selectAll" resultType="guestbookVo">
 		<![CDATA[
 			SELECT no, name, password, content, regdate as regDate
 			FROM guestbook
@@ -20,7 +20,7 @@
 	<!-- guestbook.insert 로 호출, 파라미터로 GuestbookVo -->
 	<!-- insert, update, delete 는 결과로 영향을 받은 레코드의 수가 반환
 		resultType은 명시하지 않는다 -->
-	<insert id="insert" parameterType="com.bitacademy.myportal.vo.GuestbookVo">
+	<insert id="insert" parameterType="guestbookVo">
 		<![CDATA[
 			INSERT INTO guestbook (no, name, password, content)
 			VALUES(seq_guestbook_no.nextval,
@@ -29,7 +29,7 @@
 	</insert>
 	
 	<!-- 방명록 삭제 쿼리 -->
-	<delete id="delete" parameterType="com.bitacademy.myportal.vo.GuestbookVo">
+	<delete id="delete" parameterType="guestbookVo">
 		<![CDATA[
 			DELETE FROM guestbook
 			WHERE no = #{ no } AND password = #{ password }
