@@ -21,12 +21,11 @@ public class GuestbookDaoImpl implements GuestbookDao {
 	
 	@Override
 	public List<GuestbookVo> selectAll() {
-		//	가상 데이터
-		List<GuestbookVo> list = new ArrayList<>();
+
+		//	TODO : 예외 전환 처리
+		List<GuestbookVo> list = sqlSession.selectList("guestbook.selectAll");
+		System.out.println("방명록 : " + list);
 		
-		list.add(new GuestbookVo(1L, "홍길동", "1234", "왔다갑니다", new Date()));
-		list.add(new GuestbookVo(2L, "장길산", "pass", "저두요", new Date()));
-		list.add(new GuestbookVo(3L, "전우치", "test", "해위", new Date()));
 		return list;
 	}
 
