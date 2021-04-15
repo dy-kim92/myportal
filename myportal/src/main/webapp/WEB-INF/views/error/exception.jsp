@@ -20,7 +20,6 @@
 			<div id="content">
 				<div id="site-introduction">
 					<h1>OPPS !</h1>
-					
 					<h2>Error 발생 !</h2>
 					<h3>${ name }</h3>
 					<p>${ message }</p>
