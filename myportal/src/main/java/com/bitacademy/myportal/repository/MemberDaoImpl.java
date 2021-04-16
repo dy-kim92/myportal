@@ -1,5 +1,8 @@
 package com.bitacademy.myportal.repository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,9 +32,16 @@ public class MemberDaoImpl implements MemberDao {
 		return insertedCount;
 	}
 
+	//	email 과 password 로 사용자 찾기
 	@Override
 	public MemberVo selectUser(String email, String password) {
-		return null;
+		Map<String, String> userMap = new HashMap<>();
+		userMap.put("email", email);
+		userMap.put("password", password);
+		
+		MemberVo vo = sqlSession.selectOne("members.selectUserByEmailAndPassword", userMap);
+		
+		return vo;
 	}
 
 	@Override
