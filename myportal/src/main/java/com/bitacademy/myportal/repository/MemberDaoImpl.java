@@ -26,7 +26,7 @@ public class MemberDaoImpl implements MemberDao {
 			 throw new MemberDaoException("회원 가입 중 오류 발생 ! ", vo);
 		 }
 		 
-		return 0;
+		return insertedCount;
 	}
 
 	@Override
