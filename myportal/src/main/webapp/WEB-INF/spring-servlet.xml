@@ -48,8 +48,8 @@
 	<!-- Interceptors -->
 	<mvc:interceptors>
 		<!-- 순서대로 적용된다 -->
-		<mvc:interceptor>
-			<!-- /board 하위 모든 url에 인터셉터 적용 -->
+		<!-- /board 하위 모든 url에 인터셉터 적용 -->
+		<!-- mvc:interceptor>
 			<mvc:mapping path="/board/**" />
 			<bean class="com.bitacademy.myportal.interceptors.MyInterceptor" />
 		</mvc:interceptor>
@@ -57,6 +57,15 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/board/**" />
 			<bean class="com.bitacademy.myportal.interceptors.MyInterceptor2" />
+		</mvc:interceptor -->
+		<!-- 인증처리 : 인터셉터 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/board/**" />
+			<!-- 아래 매핑은 인터셉터 적용에서 제외 -->
+			<mvc:exclude-mapping path="/board/list/**" />	<!-- /board/list 하위 요청은 적용안함 -->
+			<mvc:exclude-mapping path="/board/"/>
+			<mvc:exclude-mapping path="/board"/>
+			<bean class="com.bitacademy.myportal.interceptors.AuthInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 
