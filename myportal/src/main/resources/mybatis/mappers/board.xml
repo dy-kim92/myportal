@@ -8,7 +8,7 @@
 		<![CDATA[
 			SELECT b.no, b.title, b.content, b.hit, b.reg_date as regDate,
 				m.no as memberNo,
-				m.name as memberName,
+				m.name as memberName
 			FROM board b, members m
 			WHERE b.member_no = m.no
 		]]>
