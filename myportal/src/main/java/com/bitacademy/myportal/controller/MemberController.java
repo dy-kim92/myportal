@@ -36,7 +36,7 @@ public class MemberController {
 	private MemberService memberService;
 	
 	//	회원가입 폼
-	@RequestMapping(value= {"", "/", "join"}, method=RequestMethod.GET)
+	@RequestMapping(value= {"", "/", "/join"}, method=RequestMethod.GET)
 	public String join(@ModelAttribute MemberVo memberVo) {
 		return "members/joinform";
 	}
